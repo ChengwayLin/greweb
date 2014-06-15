@@ -1,0 +1,148 @@
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link rel="icon" type="image/ico" href="favicon.ico"/>
+		<title>Quictionary</title>
+		<link href="style.css" rel="stylesheet">
+
+		<link href="tagit/jquery.tagit.css" rel="stylesheet" type="text/css">
+    	<link href="tagit/tagit.ui-zendesk.css" rel="stylesheet" type="text/css">
+
+		
+
+		<script type="text/javascript" src='jquery-1.9.0.min.js' ></script>
+		<!-- // <script type="text/javascript" src='jquery.textareaAutoResize.js' ></script> -->
+		<script src='dic.js'></script>
+		<script src='dic_jQuery.js'></script>
+		<script src='textareaResize.js'></script>
+		<script src='server.js'></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="tagit/tag-it.js" type="text/javascript" charset="utf-8"></script>
+
+		<script>
+		$(document).ready(function(){
+
+		    $('.elastic').elas({
+		          "width" : "96%",
+		          "margin-left" : "2%",
+		          "font-size" : "16px",
+		          "font-family" : "'georgia'",
+		          "font-weight" : "normal",
+		          "padding" : "10px",
+		          "line-height" : "24px",
+		    });
+
+		    $('.myTags').tagit();
+		 
+		});
+		</script>
+		
+
+	</head>
+
+
+
+
+
+	<body>
+		<!-- onLoad='onLoadSearchWord()' -->
+
+
+	<div class='searchBlock'>
+		<div class='logo' >
+			Quictionary
+			<input id='newTab' type='button' value='+' onclick="openInTab()">
+		</div>
+		<div>
+			<input id='searchBar' type='text'>
+			<input id='searchButton' type='button' value='Search' onclick="searchWord()">
+
+			
+		</div>
+	</div>
+
+	<div class='controlPanel'>
+	<input type='text' placeholder='vocabulary'>
+	<input type='button' value='No Ad' onclick="noAd()">
+	<p id='status_bar'>status</p>
+	</div>
+
+
+	<div class='inputArea'>
+
+		<form>
+
+		<div class='volca_section_main'>
+			<input id='Vocabulary' type='text' placeholder='vocabulary'>
+			<input id='Pronunciation' type='text' placeholder='pronunciation'>
+
+		</div>
+		<div class='volca_section_expendable'>
+			<div id='explanation_block' class='explanation_block'>
+				<div class='explanation_item'>
+
+					<p>Definition:
+<!-- 						<select>
+						  <option value="volvo">Noun</option>
+						  <option value="saab">Verb</option>
+						  <option value="mercedes">Adjective</option>
+						  <option value="audi">Adverb</option>
+						</select> -->
+					</p>
+
+					<input type='text' placeholder='中文解釋' value=''>
+					<input type='text' placeholder='English Explanation'  value=''>
+					<p>Example Sentance</p>
+					<textarea  class='elastic' placeholder='Example Sentence 1' rows="1"></textarea>
+					<textarea  class='elastic' placeholder='Example Sentence 2' rows="1"></textarea>
+					<textarea  class='elastic' placeholder='Example Sentence 3' rows="1"></textarea>
+					
+					<p>Synonyms</p>
+					<ul class="myTags"></ul>
+					
+				
+				</div>
+			</div>
+			<div class='explanation_add_button'>
+				
+				<input type='button' value='+' style='margin-left:2%;margin-top:10px;' onClick="addExplanation()">
+				
+			</div>
+
+		</div>
+		<div class='volca_section_appendix'>
+			<p>Derivatives</p>
+			<input type='text' placeholder='Derivatives' >			
+			<p>Tags</p>
+			<input type='text' placeholder='Tags' >	
+			<p>Etymology</p>
+			<input type='text' placeholder='Etymology' >
+
+			<p><input type='button' value='Save' onClick="javascript:ajax_post();"></p>
+			<p id='status' ></p>
+		
+		</div>
+		
+		
+
+		</form>
+
+	</div>
+
+
+
+	<iframe id='oxfordDic_iframe' scrolling="no" class='oxfordDic_iframe' src=""></iframe>
+
+
+	<div class='cditDiv'>
+	<div class='googleTransDiv' >
+		<iframe id='googleTrans' src="" scrolling="no"></iframe>
+	</div>
+	<iframe id='cdit' scrolling="no" class='cdit_iframe' src=""></iframe>
+	</div>
+
+
+	</body>
+
+</html>

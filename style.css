@@ -1,0 +1,391 @@
+*{
+margin: 0;
+padding: 0;
+}
+
+html,body{
+
+width: 100%;
+min-height:100%;
+height: 2500px;
+background-color: #3A3C41;
+ -webkit-font-smoothing: antialiased;
+ -moz-osx-font-smoothing: grayscale;
+ font-family: 'georgia';
+}
+
+
+select{
+background-color: transparent;
+border: 0;
+color: rgba(73,155,234,1);
+color: #6F6F6F;
+}
+
+input[type='text']{
+border: 0px solid #ddd;
+border-radius: 3px;
+padding: 7px;
+background-color: #D5EDFF;
+-webkit-font-smoothing: antialiased;
+
+}
+
+
+
+input[type='text']:focus{
+outline: none;
+background-color: #D5E0F0;
+}
+
+textarea{
+background-color: transparent;
+color: rgba(73,155,234,1);
+border: 0;
+margin-top: 10px;
+line-height: 24px;
+padding: 10px;
+font-size: 16px;
+font-family: 'georgia';
+border-bottom: 1px solid rgba(78, 78, 78, 1);
+-webkit-font-smoothing: antialiased;
+resize:none;
+}
+
+
+textarea:focus{
+outline: none;
+box-shadow: none;
+border-bottom: 1px solid #777;
+
+}
+
+input[type='button']{
+border: 0;
+border-radius: 3px;
+padding: 7px;
+cursor: pointer;
+background: rgba(73,155,234,1);
+background: -moz-linear-gradient(top, rgba(73,155,234,1) 0%, rgba(32,124,229,1) 100%);
+background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(73,155,234,1)), color-stop(100%, rgba(32,124,229,1)));
+background: -webkit-linear-gradient(top, rgba(73,155,234,1) 0%, rgba(32,124,229,1) 100%);
+background: -o-linear-gradient(top, rgba(73,155,234,1) 0%, rgba(32,124,229,1) 100%);
+background: -ms-linear-gradient(top, rgba(73,155,234,1) 0%, rgba(32,124,229,1) 100%);
+background: linear-gradient(to bottom, rgba(73,155,234,1) 0%, rgba(32,124,229,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#499bea', endColorstr='#207ce5', GradientType=0 );
+
+}
+
+input[type='button']:active{
+outline: none;
+box-shadow: none;
+/*background-color: #D5E0F0;*/
+}
+
+iframe{
+background-color: rgb(86, 88, 94);
+}
+
+@font-face {
+font-family: 'Conv_MyriadPro-Light';
+src: url('fonts/MyriadPro-Light.eot');
+src: url('roboto-thin-webfont.eot?#iefix') format('embedded-opentype'),
+url('fonts/MyriadPro-Light.woff') format('woff'), 
+url("fonts/MyriadPro-Light.otf") format("opentype"),
+url('fonts/MyriadPro-Light.ttf') format('truetype'), 
+url('fonts/MyriadPro-Light.svg') format('svg');
+font-weight: normal;
+font-style: normal;
+}
+
+
+
+@font-face {
+font-family: 'robotothin';
+src: url('fonts/roboto-thin-webfont.eot');
+src: url('fonts/roboto-thin-webfont.eot?#iefix') format('embedded-opentype'),
+url('fonts/roboto-thin-webfont.woff') format('woff'),
+url('fonts/roboto-thin-webfont.ttf') format('truetype'),
+url('fonts/roboto-thin-webfont.svg#robotothin') format('svg');
+font-weight: normal;
+font-style: normal;
+
+}
+
+
+/*
+==========================================================================
+CSS:search block
+==========================================================================
+*/
+
+.searchBlock{
+text-align: center;
+height: 110px;
+}
+
+.logo{
+font-size: 32px;
+font-family: 'georgia',"robotothin";
+color: rgb(113, 119, 138);
+margin: 15px;
+}
+
+#searchBar{
+width: 500px;
+border-radius: 3px 0 0 3px;
+font-size: 20px;
+font-family: 'georgia';
+position: absolute;
+left: 50%;
+margin-left: -300px;
+height: 36px;
+}
+
+#searchButton{
+border-radius: 0 3px 3px 0;
+font-family: 'georgia';
+font-size: 16px;
+color: rgb(28, 75, 145);
+position: absolute;
+height: 36px;
+left: 50%;
+width: 100px;
+margin-left: 200px;
+}
+
+#newTab{
+padding: 6px 10px;
+font-size: 20px;
+color: white;
+font-weight: bold;
+position: absolute;
+right: 0;
+margin-right: 20px;
+}
+
+/*
+==========================================================================
+CSS:control panel
+==========================================================================
+*/
+
+.controlPanel{
+text-align: center;
+display: none;
+}
+
+/*
+==========================================================================
+CSS:input area
+==========================================================================
+*/
+.inputArea{
+/*padding:  0 20px;*/
+position: relative;
+padding: 20px 0;
+text-align: center;
+/*border: 2px solid #fff;*/
+overflow: auto;
+}
+
+.inputArea p{
+font-family: 'helvetica','arial';
+color: #6F6F6F;
+font-size: 10px;
+font-weight: bold;
+margin-top: 20px;
+}
+
+.inputArea input[type='text']{
+border: 0;
+border-radius: 0;
+padding: 7px;
+background-color: transparent;
+font-size: 16px;
+color: rgba(73,155,234,1);
+font-family: 'georgia';
+border-bottom: 1px solid rgba(78, 78, 78, 1);
+
+}
+
+.inputArea input[type='text']:focus{
+outline: none;
+background-color: transparent;
+border-bottom: 1px solid rgba(32,124,229,1);
+border-bottom: 1px solid #777;
+
+}
+
+.myTags input[type='text']:focus{
+outline: none;
+background-color: transparent;
+border-bottom: 0;
+
+
+}
+
+
+
+#Vocabulary{
+font-size: 38px;
+font-weight: lighter;
+/*width: 80%;*/
+/*margin-left: 10%;*/
+}
+
+#test{
+font-size: 38px;
+color: rgba(73,155,234,1);
+font-family: 'georgia';
+}
+
+.inputArea input::-webkit-input-placeholder {
+    color: rgb(74, 77, 85);
+    /*font-weight: bold;*/
+}
+.inputArea input:-moz-placeholder {
+    color: rgb(74, 77, 85);
+    /*font-weight: bold;*/
+}
+.inputArea input:-ms-input-placeholder {
+    color: rgb(74, 77, 85);
+    /*font-weight: bold;*/
+}
+
+.inputArea textarea::-webkit-input-placeholder {
+    color: rgb(74, 77, 85);
+    /*font-weight: bold;*/
+}
+.inputArea textarea:-moz-placeholder {
+    color: rgb(74, 77, 85);
+    /*font-weight: bold;*/
+}
+.inputArea textarea:-ms-input-placeholder {
+    color: rgb(74, 77, 85);
+    /*font-weight: bold;*/
+}
+
+.volca_section_main{
+/*position: absolute;*/
+width: 23%;
+float: left;
+/*border: 2px solid red;*/
+}
+
+.volca_section_expendable{
+/*position: absolute;*/
+/*left: 25%;*/
+/*margin-left: 25%;*/
+text-align: left;
+width: 48%;
+float: left;
+/*border: 2px solid red;*/
+}
+
+.inputArea .volca_section_expendable input[type='text'],textarea{
+width: 96%;
+margin-left: 2%;
+
+}
+
+
+
+.volca_section_expendable p{
+width: 96%;
+margin-left: 2%;
+
+
+}
+
+.volca_section_appendix{
+	/*position: absolute;*/
+/*left: 75%;*/
+/*margin-left: 75%;*/
+width: 25%;
+float: left;
+/*border: 2px solid red;*/
+}
+
+
+.volca_section_appendix p{
+text-align: left;
+width: 80%;
+margin-left: 10%;
+
+}
+
+
+.explanation_item{
+	/*overflow: auto;*/
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.inputArea input[type='text']{
+width: 80%;
+/*margin-left: 10%;*/
+}
+/*
+==========================================================================
+CSS:cdit
+==========================================================================
+*/
+
+.cditDiv{
+position: absolute;
+width: 780px;
+left: 46%;
+height: 6000px;
+overflow: hidden;
+
+}
+
+.cdit_iframe{
+position: absolute;
+width: 1600px;
+border: 1px solid #3A3C41;
+
+height: 6000px;
+
+}
+
+/*
+==========================================================================
+CSS:oxford dictionary
+==========================================================================
+*/
+
+#oxfordDic_iframe{
+position: absolute;
+width: 40%;
+left: 3%;
+height: 6000px;
+border: 1px solid #3A3C41;
+
+
+}
+
+/*
+==========================================================================
+CSS:translator
+==========================================================================
+*/
+
+.googleTransDiv{
+height: 374px;
+width: 980px;
+/*border-top: 1px solid #ddd;*/
+overflow: hidden;
+margin-bottom: 37px;
+
+}
+
+#googleTrans{
+width: 100%;
+height: 1000px;
+margin-top: -244px;
+margin-left: -200px;
+
+}
