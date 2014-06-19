@@ -31,7 +31,19 @@
 		          "font-weight" : "normal",
 		          "padding" : "10px",
 		          "line-height" : "24px",
+		          "overflow":"hidden",
 		    });
+
+		    $('.side_elastic').elas({
+		          "width" : "80%",
+		          "margin-left" : "10%",
+		          "font-size" : "16px",
+		          "font-family" : "'georgia'",
+		          "font-weight" : "normal",
+		          "padding" : "10px",
+		          "line-height" : "24px",
+		          "overflow":"hidden",
+		    });		    
 
 		    $('.myTags').tagit();
 		 
@@ -91,12 +103,12 @@
 						</select> -->
 					</p>
 
-					<input type='text' placeholder='中文解釋' value=''>
-					<input type='text' placeholder='English Explanation'  value=''>
+					<input name='defChinese' type='text' placeholder='中文解釋' value=''>
+					<input name='defEnglish'  type='text' placeholder='English Explanation'  value=''>
 					<p>Example Sentance</p>
-					<textarea  class='elastic' placeholder='Example Sentence 1' rows="1"></textarea>
-					<textarea  class='elastic' placeholder='Example Sentence 2' rows="1"></textarea>
-					<textarea  class='elastic' placeholder='Example Sentence 3' rows="1"></textarea>
+					<textarea  name='setence1' class='elastic' placeholder='Example Sentence 1' rows="1"></textarea>
+					<textarea  name='setence2' class='elastic' placeholder='Example Sentence 2' rows="1"></textarea>
+					<textarea  name='setence3' class='elastic' placeholder='Example Sentence 3' rows="1"></textarea>
 					
 					<p>Synonyms</p>
 					<ul class="myTags"></ul>
@@ -107,18 +119,18 @@
 			<div class='explanation_add_button'>
 				
 				<input type='button' value='+' style='margin-left:2%;margin-top:10px;' onClick="addExplanation()">
+				<!-- <input type='button' value='test' style='margin-left:2%;margin-top:10px;' onClick="pasteToTextarea()"> -->
 				
 			</div>
 
 		</div>
 		<div class='volca_section_appendix'>
 			<p>Derivatives</p>
-			<input type='text' placeholder='Derivatives' >			
+			<ul name='derivatives' class="myTags"></ul>		
 			<p>Tags</p>
-			<input type='text' placeholder='Tags' >	
+			<ul name='tags' class="myTags"></ul>	
 			<p>Etymology</p>
-			<input type='text' placeholder='Etymology' >
-
+			<textarea name='etymology'  class='side_elastic' placeholder='origin' rows="1"></textarea>
 			<p><input type='button' value='Save' onClick="javascript:ajax_post();"></p>
 			<p id='status' ></p>
 		

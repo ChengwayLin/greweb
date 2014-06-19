@@ -5,31 +5,58 @@
 	include 'include/db_connect.php';
 
 	$vocabulary = $_POST['vocabulary'];
-	$pronunciation = $_POST['pronunciation'];	
+	$pronunciation = $_POST['pronunciation'];
 
+
+	$data = json_decode( $_POST['vocabularyData'] );
+	echo "JSON:".$data->vocabulary."<br/>";
+	echo "JSON:".$data->pronunciation."<br/>";
+	//echo "JSON:".$data->definitions[0]->defChinese."<br/>";
+
+    foreach ($data->definitions as $key => $value) {
+    echo $key.$value->defChinese."<br/>";
+    echo $value->defEnglish."<br/>";
+    echo $value->setence1."<br/>";
+    echo $value->setence2."<br/>"; 
+    echo $value->setence3."<br/>";
+
+    	foreach ($value->synonyms as $key => $value) {
+    		echo $value."<br/>";
+    	}
+
+    }
 	
+    foreach ($data->derivatives as $key => $value) {
+    echo "derivatives: ".$value."<br/>";
+    }
 
-	// $result = $mysqli->query("SELECT * FROM vocabulary ");
+    foreach ($data->tags as $key => $value) {
+    echo "tags: ".$value."<br/>";
+    }
 
- //    while ($assoc = $result->fetch_assoc()){
- //            foreach ($assoc as $key => $value) {
- //            echo "<p>".$key.':'.$value."</p>";
- //            }
- //    }
+	echo "etymology:".$data->etymology."<br/>";
+
+// $result = $mysqli->query("SELECT * FROM vocabulary ");
+
+//    while ($assoc = $result->fetch_assoc()){
+//            foreach ($assoc as $key => $value) {
+//            echo "<p>".$key.':'.$value."</p>";
+//            }
+//    }
 
 
 
-	//$result = $mysqli->query("SELECT * FROM vocabulary WHERE id = '2' ");
+//$result = $mysqli->query("SELECT * FROM vocabulary WHERE id = '2' ");
 
-	// if (  $result = $mysqli->query("SELECT * FROM vocabulary WHERE id = '2' ") ) {
-	// 	echo "This word already exist";   
-	// }
+// if (  $result = $mysqli->query("SELECT * FROM vocabulary WHERE id = '2' ") ) {
+// 	echo "This word already exist";   
+// }
 
- //    while ($assoc = $result->fetch_assoc()){
- //            foreach ($assoc as $key => $value) {
- //            echo "<p>".$key.':'.$value."</p>";
- //            }
- //    }
+//    while ($assoc = $result->fetch_assoc()){
+//            foreach ($assoc as $key => $value) {
+//            echo "<p>".$key.':'.$value."</p>";
+//            }
+//    }
 
 	if ($vocabulary !== '') {
 		#echo 'real string';		

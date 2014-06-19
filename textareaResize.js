@@ -8,11 +8,12 @@
         $(this).each(
             function(){
 
-            var random = Math.floor((Math.random() * 100) + 1);
+            var random = Math.floor((Math.random() * 10000000) + 1);
 
                 //Add textarea tag
                 //This $(this) refers to jQuery object of $('.elastic')[0]
                 $(this).attr('elascode', 'ui_'+random );
+                $(this).attr('elasticItem', 'yes' );
 
                 //Add Imitating <p> to
                 
@@ -29,36 +30,32 @@
 
                 para.css('position','absolute');
                 para.css('visibility','hidden');
+                para.css('-moz-box-sizing','border-box');
+                para.css('-webkit-box-sizing','border-box');
+                para.css('box-sizing','border-box');
+                para.css('border','1px solid red');
 
                 $(this).after( para );
 
                 $(this).keyup(function() {
                                         
-                    var text = $(this).val()
-                    //var text = $(this).html();                    
-
-                    console.log('text: '+ text);
-
-                    text = text.replace(/ /g, "i ");
-                    text = text.replace(/</g, "a");
-                    text = text.replace(/>/g, "a");
-                    text = text.replace(/\r?\n/g, '<br />i');
-
-                    var imitating = $("p[elascode='"+ $(this).attr( 'elascode' ) +"']");
-                    imitating.html( text );
-
-                    var lineH = $(this).css('line-height').replace('px','');
-
-                    var lines = (imitating.height())/lineH;
-                    if (lines == 0) {
-                    }else{
-                        $(this).attr('rows', lines );
-                    };
-
+                    adjustHeight($(this));
                    
-                     if (window.console) console.log('height: '+ imitating.height() + 'line-height: '+ lineH +"   lines:"+lines);
+                });
 
-                   
+
+
+
+
+                $(this).on('paste', function () {
+                  var _this = this;
+
+                    setTimeout( function() {
+                        var textt = $(_this).val();
+                        
+                        adjustHeight($(_this));
+                    }, 100);
+
                 });
 
 
@@ -96,6 +93,52 @@
     };
 
 })(jQuery);
+
+
+
+
+function adjustHeight(textarea) {
+
+
+                    var text = textarea.val()
+                    //var text = $(this).html();                    
+
+                    console.log('text: '+ text);
+
+                    text = text.replace(/ /g, " ");
+                    text = text.replace(/</g, "a");
+                    text = text.replace(/>/g, "a");
+                    text = text.replace(/\r?\n/g, '<br />i');
+
+                    console.log('modified text: '+ text);
+
+                    var imitating = $("p[elascode='"+ textarea.attr( 'elascode' ) +"']");
+                    imitating.html( text );
+
+                    var lineH = textarea.css('line-height').replace('px','');
+                    var lines = (imitating.height())/lineH;
+                    if (lines == 0) {
+                    }else{
+                        textarea.attr('rows', lines );
+
+                        //textarea.css('height',imitating.height());
+                    };
+
+                   
+                     if (window.console) console.log('height: '+ imitating.height() + 'line-height: '+ lineH +"   lines:"+lines);
+
+
+}
+
+
+$(window).on('resize', function(){
+
+    var elass = $("textarea[elasticItem='yes']");
+    elass.each( function() {
+      adjustHeight($(this));
+    });
+
+}); 
 
 
 
